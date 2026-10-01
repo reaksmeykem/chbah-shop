@@ -9,10 +9,14 @@ use Illuminate\Validation\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title('Edit product — Chbah Admin')]
 class ProductForm extends Component
 {
     public ?Product $product = null;
+
+    public function getTitleProperty(): string
+    {
+        return ($this->product->exists ? 'Edit product' : 'New product') . ' — Chbah Admin';
+    }
 
     public string $name = '';
 

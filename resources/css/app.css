@@ -84,6 +84,8 @@ body {
     border: 2px solid var(--color-ivory);
 }
 
+@layer components {
+
 /* ---------------------------- typography ------------------------------- */
 
 .eyebrow {
@@ -174,6 +176,8 @@ body {
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 14%, transparent);
     background: #fff;
 }
+
+} /* end @layer components */
 
 /* ------------------------- background animation ------------------------- */
 
