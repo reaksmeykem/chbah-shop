@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "mimosa-finding-ledger-batch/v1",
+  "batchId": "stop-20261001T141647457Z-31444-9e629aad5605",
+  "runId": "20261001T141647457Z-31444-9e629aad5605",
+  "runStatus": "completed",
+  "coverage": {
+    "status": "complete",
+    "reasons": []
+  },
+  "source": {
+    "component": "zcode-hook",
+    "operationId": "Stop"
+  },
+  "revision": null,
+  "diffHash": "aef62227329e18b8ad6f539c7059446d5ba44a369b75f095e7a03c00ed750b31",
+  "rulesVersion": "unavailable",
+  "sessionHash": "d0e928928a30345ac391e18edf3f2c5a6f372e9f7ad845d73676502c5ac7a11b",
+  "reportRef": ".mimosa/reports/task-review-sess_fa704e4c-556c-4819-93d6-07bcedd75614-20261001T141647457Z-31444-9e629aad5605.json",
+  "events": [],
+  "observedFindingIds": [],
+  "verifiedFiles": [
+    {
+      "file": "resources/views/layouts/app.blade.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "lang/en/site.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "lang/km/site.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "resources/views/admin/login.blade.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "resources/views/layouts/admin.blade.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "app/Livewire/Admin/Keys.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "app/Livewire/Admin/Orders.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "app/Livewire/Admin/Products.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "app/Livewire/Admin/Analytics.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    },
+    {
+      "file": "app/Livewire/Admin/ProductForm.php",
+      "direct": "complete",
+      "projectContext": "partial"
+    }
+  ],
+  "recordedAt": "2026-10-01T14:16:48.410Z"
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "mimosa-finding-history/v1",
+  "runId": "20261001T123045155Z-30016-ae72d98ba20d",
+  "runStatus": "inconclusive",
+  "errors": [
+    "candidate-select:app/Livewire/LicenseCheck.php: candidate_limit_exceeded: 13 changed reviewable file(s) were not scanned because the limit is 20",
+    "scan:lang/en/site.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:lang/km/site.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:lang/en/products.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:lang/km/products.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:lang/en/categories.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:lang/km/categories.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:app/Http/Middleware/SetLocale.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:bootstrap/app.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:routes/web.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:app/Models/Product.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:app/Models/Category.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:resources/views/layouts/app.blade.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:resources/views/livewire/home.blade.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:resources/views/livewire/product-catalog.blade.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:resources/views/livewire/partials/product-card.blade.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:resources/views/livewire/product-detail.blade.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:resources/views/livewire/cart-panel.blade.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:resources/views/livewire/license-check.blade.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:app/Livewire/Home.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT",
+    "scan:app/Livewire/ProductCatalog.php: scanner_failed: spawnSync C:\\Program Files\\nodejs\\node.exe ETIMEDOUT"
+  ],
+  "target": ".",
+  "revision": null,
+  "diffHash": "ab5b6973b42cde75a57c8b8a07f5e0eef88462aef5dafab22de2098bf54e2f5c",
+  "rulesVersion": "unavailable",
+  "recordedAt": "2026-10-01T12:30:45.155Z",
+  "timing": {
+    "startedAt": "2026-10-01T12:30:41.980Z",
+    "completedAt": "2026-10-01T12:30:45.155Z",
+    "durationMs": 3175
+  },
+  "tokens": {
+    "input": 0,
+    "output": 0,
+    "total": 0,
+    "modelCalls": 0,
+    "measurement": "known-zero"
+  },
+  "findings": {
+    "total": 0,
+    "bySeverity": {},
+    "byStatus": {}
+  },
+  "coverage": {
+    "status": "partial",
+    "reasonCounts": {
+      "candidate_limit_exceeded": 1,
+      "scanner_failed": 20,
+      "project_check_failed": 21
+    }
+  },
+  "evidenceBoundary": "static_only",
+  "immutableReport": ".mimosa/reports/task-review-sess_fa704e4c-556c-4819-93d6-07bcedd75614-20261001T123045155Z-30016-ae72d98ba20d.json"
+}

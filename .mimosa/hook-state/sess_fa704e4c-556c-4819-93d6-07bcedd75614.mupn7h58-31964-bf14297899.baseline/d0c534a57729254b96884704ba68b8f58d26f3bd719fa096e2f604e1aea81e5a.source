@@ -1,0 +1,45 @@
+
+
+<div class="tilt-scene reveal" data-reveal-delay="<?php echo e($delay); ?>" <?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::$currentLoop['key'] = 'card-'.e($product->id).'-'.e(app()->getLocale()).''; ?>wire:key="card-<?php echo e($product->id); ?>-<?php echo e(app()->getLocale()); ?>">
+    <article class="tilt-card group relative flex h-full flex-col rounded-[26px] border border-line-soft bg-white/80 p-3 shadow-soft transition-shadow duration-500 hover:shadow-lift"
+             data-tilt>
+        <div class="relative">
+            <div class="art-frame aspect-square">
+                <img src="<?php echo e($product->image_url); ?>" alt="<?php echo e($product->name); ?>" loading="lazy">
+            </div>
+
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($product->badge): ?>
+                <span class="badge <?php echo e($product->badge === 'New' ? 'badge-new' : 'badge-best'); ?> absolute left-4 top-4">
+                    <?php echo e($product->badge === 'New' ? __('site.hero.badge_new') : __('site.badge.bestseller')); ?>
+
+                </span>
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+            <a href="<?php echo e(route('product.show', $product->slug)); ?>" class="absolute inset-0 z-10"
+               aria-label="<?php echo e(__('site.card.view', ['name' => $product->name])); ?>"></a>
+
+            <button wire:click="$dispatch('add-to-cart', { id: <?php echo e($product->id); ?> })"
+                    class="btn-primary absolute bottom-4 left-1/2 z-20 -translate-x-1/2 translate-y-16 px-5 py-2.5 text-[13px] opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+                    <path d="M12 5v14M5 12h14"/>
+                </svg>
+                <?php echo e(__('site.card.add_to_cart')); ?>
+
+            </button>
+        </div>
+
+        <div class="flex flex-1 flex-col gap-1 px-2.5 pb-2 pt-4">
+            <div class="flex items-baseline justify-between gap-3">
+                <span class="eyebrow"><?php echo e($product->category->display_name); ?> · v<?php echo e($product->version); ?></span>
+                <span class="display text-[17px] font-semibold"><?php echo e($product->price); ?></span>
+            </div>
+            <a href="<?php echo e(route('product.show', $product->slug)); ?>"
+               class="text-[15.5px] font-medium leading-snug transition-colors duration-300 hover:text-accent-deep">
+                <?php echo e($product->name); ?>
+
+            </a>
+            <p class="text-[13px] leading-relaxed text-muted"><?php echo e($product->display_tagline); ?></p>
+        </div>
+    </article>
+</div>
+<?php /**PATH D:\2026\MyProjects\atelier\resources\views/livewire/partials/product-card.blade.php ENDPATH**/ ?>

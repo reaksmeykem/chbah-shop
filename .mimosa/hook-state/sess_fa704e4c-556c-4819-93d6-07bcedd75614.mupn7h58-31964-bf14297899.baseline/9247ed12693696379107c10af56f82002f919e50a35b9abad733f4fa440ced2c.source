@@ -1,0 +1,88 @@
+<div class="relative">
+
+    
+    <div class="orb orb-b" style="opacity:.3"></div>
+    <div class="orb orb-c" style="opacity:.25"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 pb-24 pt-12 sm:px-8 lg:pt-16">
+
+        
+        <div class="reveal mb-10 max-w-2xl" <?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::$currentLoop['key'] = 'heading-'.e(app()->getLocale()).''; ?>wire:key="heading-<?php echo e(app()->getLocale()); ?>">
+            <p class="eyebrow mb-3"><?php echo e(__('site.shop.eyebrow')); ?></p>
+            <h1 class="display text-5xl font-semibold leading-[1.05] sm:text-[56px]">
+                <?php echo __('site.shop.title_line1'); ?><br><em class="text-accent-deep"><?php echo __('site.shop.title_line2'); ?></em>
+            </h1>
+            <p class="mt-5 text-[16px] leading-relaxed text-muted">
+                <?php echo e(__('site.shop.subtitle', ['count' => number_format($products->total())])); ?>
+
+            </p>
+        </div>
+
+        
+        <div class="sticky top-16 z-30 -mx-5 mb-10 border-y border-line-soft bg-ivory/85 px-5 py-3.5 backdrop-blur sm:-mx-8 sm:px-8">
+            <div class="flex flex-wrap items-center gap-3">
+                
+                <div class="relative">
+                    <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-faint"
+                         fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+                    </svg>
+                    <input type="search" wire:model.live.debounce.350ms="search" placeholder="<?php echo e(__('site.shop.search')); ?>"
+                           class="field w-56 rounded-full py-2.5 pl-10 pr-4 text-[13.5px]">
+                </div>
+
+                
+                <div class="flex flex-1 flex-wrap items-center gap-2">
+                    <button class="chip" wire:click="setCategory('')" data-active="<?php echo e($category === ''); ?>"><?php echo e(__('site.shop.all')); ?></button>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
+                        <button class="chip" <?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::$currentLoop['key'] = 'chip-'.e($c->slug).'-'.e(app()->getLocale()).''; ?>wire:key="chip-<?php echo e($c->slug); ?>-<?php echo e(app()->getLocale()); ?>"
+                                wire:click="setCategory('<?php echo e($c->slug); ?>')"
+                                data-active="<?php echo e($category === $c->slug); ?>"><?php echo e($c->display_name); ?></button>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
+                </div>
+
+                
+                <select wire:model.live="sort"
+                        class="field w-auto cursor-pointer rounded-full py-2.5 pl-4 pr-9 text-[13.5px] appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%236f6d64%22 stroke-width=%222%22 stroke-linecap=%22round%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E')] bg-[length:16px] bg-[right_0.75rem_center] bg-no-repeat">
+                    <option value="featured"><?php echo e(__('site.shop.sort_featured')); ?></option>
+                    <option value="newest"><?php echo e(__('site.shop.sort_newest')); ?></option>
+                    <option value="price-asc"><?php echo e(__('site.shop.sort_price_asc')); ?></option>
+                    <option value="price-desc"><?php echo e(__('site.shop.sort_price_desc')); ?></option>
+                </select>
+            </div>
+        </div>
+
+        
+        <div wire:loading.class="lw-loading" class="transition-opacity duration-200" <?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::$currentLoop['key'] = 'grid-'.e(app()->getLocale()).''; ?>wire:key="grid-<?php echo e(app()->getLocale()); ?>">
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($products->count()): ?>
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
+                        <?php echo $__env->make('livewire.partials.product-card', ['product' => $product, 'delay' => ($i % 3) * 70], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
+                </div>
+
+                <div class="mt-14">
+                    <?php echo e($products->onEachSide(1)->links('livewire.partials.pagination')); ?>
+
+                </div>
+            <?php else: ?>
+                <div class="flex flex-col items-center gap-4 rounded-[26px] border border-dashed border-line bg-white/50 py-20 text-center">
+                    <span class="flex h-16 w-16 items-center justify-center rounded-full bg-cream">
+                        <svg viewBox="0 0 24 24" class="h-7 w-7 text-faint" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>
+                        </svg>
+                    </span>
+                    <div>
+                        <p class="display text-xl"><?php echo e(__('site.shop.empty_title', ['search' => $search])); ?></p>
+                        <p class="mt-1 text-sm text-muted"><?php echo e(__('site.shop.empty_body')); ?></p>
+                    </div>
+                    <button wire:click="$set('search', '')" wire:click="$set('category', '')" class="btn-ghost mt-2 px-5 py-2.5 text-sm">
+                        <?php echo e(__('site.shop.clear_filters')); ?>
+
+                    </button>
+                </div>
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php /**PATH D:\2026\MyProjects\atelier\resources\views/livewire/product-catalog.blade.php ENDPATH**/ ?>

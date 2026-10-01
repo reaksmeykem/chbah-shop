@@ -1,0 +1,84 @@
+<div class="relative overflow-hidden">
+    <div class="orb orb-a" style="opacity:.3"></div>
+    <div class="orb orb-c" style="opacity:.25"></div>
+    <div class="grain"></div>
+
+    <div class="relative mx-auto max-w-xl px-5 pb-28 pt-16 sm:pt-24">
+        <div class="reveal text-center">
+            <p class="eyebrow mb-3"><?php echo e(__('site.license.eyebrow')); ?></p>
+            <h1 class="display text-4xl font-semibold leading-[1.08] sm:text-5xl">
+                <?php echo __('site.license.title_line1'); ?> <em class="text-accent-deep"><?php echo __('site.license.title_line2'); ?></em>
+            </h1>
+            <p class="mt-4 text-[15px] leading-relaxed text-muted">
+                <?php echo e(__('site.license.body')); ?>
+
+            </p>
+        </div>
+
+        <form wire:submit="check" class="reveal mt-9" data-reveal-delay="100">
+            <div class="flex flex-col gap-3 sm:flex-row">
+                <input type="text" wire:model="key" placeholder="<?php echo e(__('site.license.placeholder')); ?>"
+                       class="field flex-1 rounded-full font-mono uppercase tracking-wide">
+                <button type="submit" class="btn-primary px-7 py-3.5 text-[15px]" wire:loading.attr="disabled">
+                    <?php echo e(__('site.license.check')); ?>
+
+                </button>
+            </div>
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['key'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <p class="mt-2 pl-2 text-[13px] text-accent-deep"><?php echo e($message); ?></p> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+        </form>
+
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($result): ?>
+            <div class="reveal mt-8" <?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::$currentLoop['key'] = 'result-'.e($key).'-'.e(app()->getLocale()).''; ?>wire:key="result-<?php echo e($key); ?>-<?php echo e(app()->getLocale()); ?>">
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($result['found'] && $result['issued']): ?>
+                    <div class="rounded-[26px] border border-line-soft bg-white/80 p-6 shadow-soft">
+                        <div class="flex items-center gap-3.5">
+                            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-sage/25 text-sage-deep">
+                                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4.5 12.5l5 5 10-11"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <p class="display text-lg font-semibold"><?php echo e(__('site.license.valid')); ?></p>
+                                <p class="text-[13px] text-muted"><?php echo e(__('site.license.issued', ['date' => $result['issued_at']])); ?></p>
+                            </div>
+                        </div>
+
+                        <dl class="mt-5 space-y-3 border-t border-line-soft pt-5 text-[14px]">
+                            <div class="flex gap-4"><dt class="w-24 shrink-0 text-faint"><?php echo e(__('site.license.product')); ?></dt><dd class="font-medium"><?php echo e($result['product']); ?></dd></div>
+                            <div class="flex gap-4"><dt class="w-24 shrink-0 text-faint"><?php echo e(__('site.license.version')); ?></dt><dd>v<?php echo e($result['version']); ?></dd></div>
+                            <div class="flex gap-4"><dt class="w-24 shrink-0 text-faint"><?php echo e(__('site.license.runs_on')); ?></dt><dd><?php echo e($result['requirements']); ?></dd></div>
+                        </dl>
+
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($result['download']): ?>
+                            <a href="<?php echo e($result['download']); ?>" class="btn-ghost mt-5 w-full py-3 text-sm">
+                                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>
+                                </svg>
+                                <?php echo e(__('site.license.download_installer')); ?>
+
+                            </a>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    </div>
+                <?php elseif($result['found']): ?>
+                    <div class="rounded-[26px] border border-dashed border-line bg-white/50 p-6 text-center">
+                        <p class="display text-lg font-semibold"><?php echo e(__('site.license.not_purchased')); ?></p>
+                        <p class="mt-1.5 text-sm text-muted"><?php echo e(__('site.license.not_purchased_body')); ?></p>
+                    </div>
+                <?php else: ?>
+                    <div class="rounded-[26px] border border-dashed border-line bg-white/50 p-6 text-center">
+                        <p class="display text-lg font-semibold"><?php echo e(__('site.license.not_found')); ?></p>
+                        <p class="mt-1.5 text-sm text-muted"><?php echo e(__('site.license.not_found_body')); ?></p>
+                    </div>
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+            </div>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+    </div>
+</div>
+<?php /**PATH D:\2026\MyProjects\atelier\resources\views/livewire/license-check.blade.php ENDPATH**/ ?>

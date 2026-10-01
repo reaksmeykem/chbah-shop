@@ -1,0 +1,53 @@
+<div>
+    <div class="mb-8">
+        <p class="eyebrow mb-2">Sales</p>
+        <h1 class="display text-3xl font-semibold">Orders</h1>
+    </div>
+
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $orders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $order): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
+        <div class="mb-4 overflow-hidden rounded-[22px] border border-line-soft bg-white/80 shadow-soft" <?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::$currentLoop['key'] = 'o-'.e($order->id).''; ?>wire:key="o-<?php echo e($order->id); ?>">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-line-soft bg-cream/40 px-5 py-4">
+                <div class="flex items-center gap-3">
+                    <span class="font-mono text-[12px] text-muted">#<?php echo e(str_pad($order->id, 4, '0', STR_PAD_LEFT)); ?></span>
+                    <span class="font-medium"><?php echo e($order->email); ?></span>
+                    <span class="chip !py-1 !text-[11px]"><?php echo e($order->status); ?></span>
+                </div>
+                <div class="flex items-center gap-4 text-sm">
+                    <span class="text-muted"><?php echo e($order->created_at->format('M j, Y · H:i')); ?></span>
+                    <span class="display text-lg font-semibold">$<?php echo e(number_format($order->total_cents / 100, 0)); ?></span>
+                </div>
+            </div>
+            <div class="grid gap-4 px-5 py-4 sm:grid-cols-2">
+                <div>
+                    <p class="mb-2 text-[11px] uppercase tracking-[0.14em] text-faint">Items</p>
+                    <ul class="space-y-1 text-sm text-ink-soft">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__currentLoopData = $order->items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
+                            <li><?php echo e($item->product?->name ?? '—'); ?> ×<?php echo e($item->qty); ?> <span class="text-faint">($<?php echo e(number_format($item->unit_price_cents / 100, 0)); ?> each)</span></li>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
+                    </ul>
+                </div>
+                <div>
+                    <p class="mb-2 text-[11px] uppercase tracking-[0.14em] text-faint">License keys delivered</p>
+                    <ul class="space-y-1.5 text-sm">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::openLoop(); ?><?php endif; ?><?php $__empty_2 = true; $__currentLoopData = $order->licenseKeys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::startLoopIteration(); ?><?php endif; ?>
+                            <li class="flex items-center gap-2">
+                                <code class="rounded-lg border border-line bg-cream/60 px-2 py-1 font-mono text-[12px]"><?php echo e($key->key); ?></code>
+                                <span class="text-[12px] text-faint"><?php echo e($key->product?->name); ?></span>
+                            </li>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
+                            <li class="text-muted">—</li>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::endLoop(); ?><?php endif; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><?php \Livewire\Features\SupportCompiledWireKeys\SupportCompiledWireKeys::closeLoop(); ?><?php endif; ?>
+        <div class="rounded-[22px] border border-dashed border-line bg-white/50 px-6 py-14 text-center">
+            <p class="display text-lg font-semibold">No orders yet</p>
+            <p class="mt-1.5 text-sm text-muted">Orders appear here the moment a customer completes checkout.</p>
+        </div>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+    <div class="mt-6"><?php echo e($orders->links()); ?></div>
+</div>
+<?php /**PATH D:\2026\MyProjects\atelier\resources\views/admin/orders.blade.php ENDPATH**/ ?>
